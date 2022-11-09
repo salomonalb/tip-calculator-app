@@ -1,10 +1,5 @@
 "use strict"
-
-// values
-let billValue = 0;
-let percentageValue = 0;
-let peopleValue = 0;
-
+import './html-elements'
 
 function clearCustomInput() {
     customInput.value = '';

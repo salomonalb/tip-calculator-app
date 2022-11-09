@@ -1,5 +1,6 @@
 "use strict"
 import './html-elements'
+import './value-variables'
 
 function clearCustomInput() {
     customInput.value = '';

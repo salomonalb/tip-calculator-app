@@ -1,18 +1,18 @@
-import * as elements from './html-elements';
-import * as values from './value-variables';
+import * as el from './html-elements';
+import * as val from './value-variables';
 
 
 export function clearCustomInput() {
-    customInput.value = '';
-    customInput.classList.remove('--valid');
-    customInput.classList.remove('--invalid');
-    customAlert.style.display = 'none';
-    customAlert.textContent = ``;
+    el.customInput.value = '';
+    el.customInput.classList.remove('--valid');
+    el.customInput.classList.remove('--invalid');
+    el.customAlert.style.display = 'none';
+    el.customAlert.textContent = ``;
 }
 
 export function clearOutput() {
-    tipOutput.textContent = `$0.00`;
-    totalOutput.textContent = `$0.00`;
+    el.tipOutput.textContent = `$0.00`;
+    el.totalOutput.textContent = `$0.00`;
 }
 
 export function calculation() {
@@ -44,6 +44,11 @@ export function calculation() {
     }
 }
 
+
+
+
+
+/*
 export function billValidate() {
     
     if (billInput.validity.valid === false || billInput.value === "" || billInput.value < 1) {
@@ -64,6 +69,30 @@ export function billValidate() {
         billAlert.textContent = ``;
 
         billValue = billInput.value;
+        calculation()
+    }
+}
+
+export function peopleValidate() {
+    
+    if (peopleInput.validity.valid === false || peopleInput.value === "" || peopleInput.value < 1) {
+
+        peopleInput.classList.remove('--valid');
+        peopleInput.classList.add('--invalid');
+        peopleAlert.style.display = 'block';
+        peopleAlert.textContent = `Can't be zero, Only whole numbers up to three digits`;
+
+        
+        peopleValue = 0;
+        clearOutput()
+
+    } else {
+        peopleInput.classList.remove('--invalid');
+        peopleInput.classList.add('--valid');
+        peopleAlert.style.display = 'none';
+        peopleAlert.textContent = ``;
+
+        peopleValue = peopleInput.value;
         calculation()
     }
 }
@@ -97,25 +126,4 @@ export function customValidate() {
 
     
 }
-export function peopleValidate() {
-    if (peopleInput.validity.valid === false || peopleInput.value === "" || peopleInput.value < 1) {
-
-        peopleInput.classList.remove('--valid');
-        peopleInput.classList.add('--invalid');
-        peopleAlert.style.display = 'block';
-        peopleAlert.textContent = `Can't be zero, Only whole numbers up to three digits`;
-
-        
-        peopleValue = 0;
-        clearOutput()
-
-    } else {
-        peopleInput.classList.remove('--invalid');
-        peopleInput.classList.add('--valid');
-        peopleAlert.style.display = 'none';
-        peopleAlert.textContent = ``;
-
-        peopleValue = peopleInput.value;
-        calculation()
-    }
-}
+*/

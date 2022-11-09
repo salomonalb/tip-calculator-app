@@ -1,4 +1,4 @@
-import { calculation } from "./functions";
+import { calculation } from "./calculation";
 import { clearOutput } from "./clear-functions";
 
 export default function validate(

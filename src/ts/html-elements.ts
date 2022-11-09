@@ -18,7 +18,15 @@ export const buttons: HTMLButtonElement[] = [button5, button10, button15, button
 export const tipOutput: HTMLOutputElement = document.querySelector('#tipAmount')!;
 export const totalOutput: HTMLOutputElement = document.querySelector('#total')!;
 
-// Alerts
+// Alerts elements
 export const billAlert: HTMLParagraphElement = document.querySelector('#billAlert')!;
 export const customAlert: HTMLParagraphElement = document.querySelector('#customAlert')!;
 export const peopleAlert: HTMLParagraphElement = document.querySelector('#peopleAlert')!;
+
+//Alert messages
+
+export const billMessage: string = "Only numbers, Can't be zero, up to two decimal points";
+
+export const peopleMessage: string = "Can't be zero, Only whole numbers up to three digits";
+
+export const customMessage: string = "Can't be zero, Only whole numbers up to three digits";

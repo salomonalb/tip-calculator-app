@@ -1,4 +1,5 @@
-import { clearOutput, calculation } from "./functions";
+import { calculation } from "./functions";
+import { clearOutput } from "./clear-functions";
 
 export default function validate(
     input: HTMLInputElement, 

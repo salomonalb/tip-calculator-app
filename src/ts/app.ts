@@ -96,7 +96,7 @@ export function calculation(): void {
     //alert(billValue)
     const tipAmount: number = ((Values.billValue * Values.percentageValue) / 100) / Values.peopleValue || 0;
     
-    alert(tipAmount)
+    //alert(tipAmount)
     const totalAmount: number = (Values.billValue + ((Values.billValue * Values.percentageValue) / 100)) / Values.peopleValue || 0; 
     
     if (tipAmount === NaN || tipAmount === Infinity || tipAmount === 0 ||totalAmount === NaN || totalAmount === Infinity) {
@@ -115,7 +115,7 @@ export function validate(
     valueObj: Object,
     valueProp: string, 
     message: string): void {
-        window.alert('here')
+        //window.alert('here')
     if (input.validity.valid === false || input.value === "" || Number(input.value) < 1) {
         //alert('wrong')
         input.classList.remove('--valid');
@@ -126,14 +126,14 @@ export function validate(
         //alert(valuevar)
         clearOutput()
     } else {
-        alert('right')
+        //alert('right')
         input.classList.remove('--invalid');
         input.classList.add('--valid');
         alertPara.style.display = 'none';
         alertPara.textContent = '';
-        alert(valueObj[valueProp])
+        //alert(valueObj[valueProp])
         valueObj[valueProp] = Number(input.value);
-        alert(valueObj[valueProp])
+        //alert(valueObj[valueProp])
         calculation()
     }
 }

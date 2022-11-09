@@ -1,31 +1,5 @@
 "use strict"
 
-
-const app = document.getElementById('app');
-
-// Text Inputs
-const billInput = document.querySelector('#bill');
-const customInput = document.querySelector('#custom');
-const peopleInput = document.querySelector('#numOfPeople');
-
-// Buttons
-const button5 = document.getElementById('5');
-const button10 = document.getElementById('10');
-const button15 = document.getElementById('15');
-const button25 = document.getElementById('25');
-const button50 = document.getElementById('50');
-const buttons = [button5, button10, button15, button25, button50];
-const resetButton = document.getElementById('reset')
-
-// Outputs
-const tipOutput = document.querySelector('#tipAmount');
-const totalOutput = document.querySelector('#total');
-
-// Alerts
-const billAlert = document.getElementById('billAlert');
-const customAlert = document.getElementById('customAlert');
-const peopleAlert = document.getElementById('peopleAlert');
-
 // values
 let billValue = 0;
 let percentageValue = 0;

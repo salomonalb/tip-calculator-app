@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./scss/styles.scss">
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="wickedcss.min.css">
+    <script src="./ts/script.ts" defer></script>
+    <title>Tip Calculator App</title>
+</head>
+<body>
+    <header class="header">
+        <img class="header__logo" src="images/logo.svg" alt="splitter logo">
+    </header>
+
+    <form id="app" class="app bounceIn">
+        <section class="app__input-section">
+            
+            <label class="app__label" for="bill">Bill</label>
+            <input class="app__input--bill" type="text" placeholder="0" name="bill" id="bill" pattern="^[0-9]*(\.[0-9]{0,2})?$">
+            <p id="billAlert" class="--alert"></p>
+
+            <fieldset class="app__tip-section">
+                <legend class="app__label">Select Tip %</legend>
+                <div class="app__buttons-grid">
+                    <button id="5" value="5" class="app__tip-button">5%</button>
+                    <button id="10" value="10" class="app__tip-button">10%</button>
+                    <button id="15" value="15" class="app__tip-button">15%</button>
+                    <button id="25" value="25" class="app__tip-button">25%</button>
+                    <button id="50" value="50" class="app__tip-button">50%</button>
+                    <input id="custom" class="app__input--custom" type="text" pattern="[0-9]{1,3}" placeholder="Custom">
+                </div>
+                <p id="customAlert" class="--alert">Can't be zero, whole numbers only</p>
+            </fieldset>
+            
+            <label class="app__label" for="numOfPeople">Number Of People</label>
+            <input class="app__input--numofpeople" type="text" placeholder="0" name="numOfPeople" pattern="[0-9]{1,3}" id="numOfPeople">
+            <p id="peopleAlert" class="--alert">Can't be zero, whole numbers only</p>
+
+        </section >
+
+
+        <section class="app__output-section">
+            <div class="app__row-container">
+                <label class="app__out-label" for="tipAmount">Tip Amount</label>
+                <p class="app__out-para">/ person</p>
+                <output class="app__out-output" name="tipAmount" id="tipAmount" for="bill numOfPeople">$0.00</output>
+            </div>
+            <div class="app__row-container">
+                <label class="app__out-label" for="total">Total</label>
+                <p class="app__out-para">/ person</p>
+                <output class="app__out-output" name="total" id="total" for="bill numOfPeople">$0.00</output>
+            </div>
+
+            <button id="reset" class="app__reset-button">RESET</button>
+        </section>
+
+    </form>
+</body>
+</html>

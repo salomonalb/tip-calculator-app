@@ -1,24 +1,24 @@
-const app: HTMLFormElement = document.querySelector('#app')!;
+export const app: HTMLFormElement = document.querySelector('#app')!;
 
 // Text Inputs
-const billInput: HTMLInputElement = document.querySelector('#bill')!;
-const customInput: HTMLInputElement = document.querySelector('#custom')!;
-const peopleInput: HTMLInputElement = document.querySelector('#numOfPeople')!;
+export const billInput: HTMLInputElement = document.querySelector('#bill')!;
+export const customInput: HTMLInputElement = document.querySelector('#custom')!;
+export const peopleInput: HTMLInputElement = document.querySelector('#numOfPeople')!;
 
 // Buttons
-const button5: HTMLButtonElement = document.querySelector('#5')!;
-const button10: HTMLButtonElement = document.querySelector('#10')!;
-const button15: HTMLButtonElement = document.querySelector('#15')!;
-const button25: HTMLButtonElement = document.querySelector('#25')!;
-const button50: HTMLButtonElement = document.querySelector('#50')!;
-const resetButton: HTMLButtonElement = document.querySelector('#reset')!;
-const buttons: HTMLButtonElement[] = [button5, button10, button15, button25, button50];
+export const button5: HTMLButtonElement = document.querySelector('#5')!;
+export const button10: HTMLButtonElement = document.querySelector('#10')!;
+export const button15: HTMLButtonElement = document.querySelector('#15')!;
+export const button25: HTMLButtonElement = document.querySelector('#25')!;
+export const button50: HTMLButtonElement = document.querySelector('#50')!;
+export const resetButton: HTMLButtonElement = document.querySelector('#reset')!;
+export const buttons: HTMLButtonElement[] = [button5, button10, button15, button25, button50];
 
 // Outputs
-const tipOutput: HTMLOutputElement = document.querySelector('#tipAmount')!;
-const totalOutput: HTMLOutputElement = document.querySelector('#total')!;
+export const tipOutput: HTMLOutputElement = document.querySelector('#tipAmount')!;
+export const totalOutput: HTMLOutputElement = document.querySelector('#total')!;
 
 // Alerts
-const billAlert: HTMLParagraphElement = document.querySelector('#billAlert')!;
-const customAlert: HTMLParagraphElement = document.querySelector('#customAlert')!;
-const peopleAlert: HTMLParagraphElement = document.querySelector('#peopleAlert')!;
+export const billAlert: HTMLParagraphElement = document.querySelector('#billAlert')!;
+export const customAlert: HTMLParagraphElement = document.querySelector('#customAlert')!;
+export const peopleAlert: HTMLParagraphElement = document.querySelector('#peopleAlert')!;

@@ -29,9 +29,23 @@ export const peopleMessage: string = "Can't be zero, Only whole numbers up to th
 export const customMessage: string = "Can't be zero, Only whole numbers up to three digits";
 
 // values
-export let billValue: number = 0;
+// I have to convert the values to an object so i can pass it to function and change the reference and not only the value inside the function
+
+interface Values {
+    billValue: number,
+    percentageValue: number,
+    peopleValue: number
+}
+
+const Values: Values = {
+    billValue: 0, 
+    percentageValue: 0,
+    peopleValue:  0
+}
+
+/*export let billValue: number = 0;
 export let percentageValue: number = 0;
-export let peopleValue: number = 0;
+export let peopleValue: number = 0;*/
 
 //Clear Functions
 export function clearCustomInput(): void {
@@ -47,13 +61,17 @@ export function clearOutput(): void {
     totalOutput.textContent = `$0.00`;
 }
 
-export function reset(valuesArray: number[]): void {
+export function reset(): void {
     clearOutput()
     clearCustomInput()
 
-    valuesArray.forEach(value => {
+    Values.billValue = 0
+    Values.peopleValue = 0
+    Values.percentageValue = 0
+    /*Values.forEach(value => {
         value = 0;
     })
+    */
 
     buttons.forEach(otherButton => {
         otherButton.classList.remove('--selected')
@@ -75,9 +93,11 @@ export function reset(valuesArray: number[]): void {
 //Calculation
 export function calculation(): void {
 
-    const tipAmount: number = ((billValue * percentageValue) / 100) / peopleValue || 0;
-
-    const totalAmount: number = (billValue + ((billValue * percentageValue) / 100)) / peopleValue || 0; 
+    //alert(billValue)
+    const tipAmount: number = ((Values.billValue * Values.percentageValue) / 100) / Values.peopleValue || 0;
+    
+    alert(tipAmount)
+    const totalAmount: number = (Values.billValue + ((Values.billValue * Values.percentageValue) / 100)) / Values.peopleValue || 0; 
     
     if (tipAmount === NaN || tipAmount === Infinity || tipAmount === 0 ||totalAmount === NaN || totalAmount === Infinity) {
         clearOutput()   
@@ -85,28 +105,35 @@ export function calculation(): void {
         tipOutput.textContent = `$${tipAmount.toFixed(2)}`;
         totalOutput.textContent = `$${totalAmount.toFixed(2)}`;
     }
+    
 }
 
 // Validate
 export function validate(
     input: HTMLInputElement, 
-    alert: HTMLParagraphElement, 
-    value: number, 
+    alertPara: HTMLParagraphElement, 
+    valueObj: Object,
+    valueProp: string, 
     message: string): void {
-
+        window.alert('here')
     if (input.validity.valid === false || input.value === "" || Number(input.value) < 1) {
+        //alert('wrong')
         input.classList.remove('--valid');
         input.classList.add('--invalid');
-        alert.style.display = 'block';
-        alert.textContent = message;
-        value = 0;
+        alertPara.style.display = 'block';
+        alertPara.textContent = message;
+        valueObj[valueProp] = 0;
+        //alert(valuevar)
         clearOutput()
     } else {
+        alert('right')
         input.classList.remove('--invalid');
         input.classList.add('--valid');
-        alert.style.display = 'none';
-        alert.textContent = '';
-        value = Number(input.value);
+        alertPara.style.display = 'none';
+        alertPara.textContent = '';
+        alert(valueObj[valueProp])
+        valueObj[valueProp] = Number(input.value);
+        alert(valueObj[valueProp])
         calculation()
     }
 }
@@ -117,11 +144,13 @@ app.addEventListener('submit',  (event)=> {
 })
 
 billInput.addEventListener('input', ()=> {
-    validate(billInput, billAlert, billValue, billMessage)
+    //alert('here')
+    validate(billInput, billAlert, Values, 'billValue', billMessage)
 })
 
 customInput.addEventListener('input', ()=> {
-    validate(customInput, customAlert, percentageValue, customMessage)
+    //alert('here')
+    validate(customInput, customAlert, Values, 'percentageValue', customMessage)
 
     buttons.forEach((button) => {
         button.classList.remove('--selected')
@@ -129,18 +158,21 @@ customInput.addEventListener('input', ()=> {
 })
 
 peopleInput.addEventListener('input', ()=> {
-    validate(peopleInput, peopleAlert, peopleValue, peopleMessage)
+    //alert('here')
+    validate(peopleInput, peopleAlert, Values, 'peopleValue', peopleMessage)
 })
 
 resetButton.addEventListener('click', (): void => {
-    reset([billValue, peopleValue, percentageValue])
+    //alert('here')
+    reset()
 })
 
 buttons.forEach((button) => {
     
     button.addEventListener('click', () => {
+        //alert('here')
         button.classList.add('--selected');
-        percentageValue = Number(button.value);
+        Values.percentageValue = Number(button.value);
 
         
         const otherButtons = buttons.filter( otherButton => {

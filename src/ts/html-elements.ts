@@ -1,24 +1,24 @@
-const app = document.querySelector('#app');
+const app: HTMLFormElement = document.querySelector('#app')!;
 
 // Text Inputs
-const billInput = document.querySelector('#bill');
-const customInput = document.querySelector('#custom');
-const peopleInput = document.querySelector('#numOfPeople');
+const billInput: HTMLInputElement = document.querySelector('#bill')!;
+const customInput: HTMLInputElement = document.querySelector('#custom')!;
+const peopleInput: HTMLInputElement = document.querySelector('#numOfPeople')!;
 
 // Buttons
-const button5 = document.querySelector('#5');
-const button10 = document.querySelector('#10');
-const button15 = document.querySelector('#15');
-const button25 = document.querySelector('#25');
-const button50 = document.querySelector('#50');
-const buttons = [button5, button10, button15, button25, button50];
-const resetButton = document.querySelector('#reset')
+const button5: HTMLButtonElement = document.querySelector('#5')!;
+const button10: HTMLButtonElement = document.querySelector('#10')!;
+const button15: HTMLButtonElement = document.querySelector('#15')!;
+const button25: HTMLButtonElement = document.querySelector('#25')!;
+const button50: HTMLButtonElement = document.querySelector('#50')!;
+const resetButton: HTMLButtonElement = document.querySelector('#reset')!;
+const buttons: HTMLButtonElement[] = [button5, button10, button15, button25, button50];
 
 // Outputs
-const tipOutput = document.querySelector('#tipAmount');
-const totalOutput = document.querySelector('#total');
+const tipOutput: HTMLOutputElement = document.querySelector('#tipAmount')!;
+const totalOutput: HTMLOutputElement = document.querySelector('#total')!;
 
 // Alerts
-const billAlert = document.querySelector('#billAlert');
-const customAlert = document.querySelector('#customAlert');
-const peopleAlert = document.querySelector('#peopleAlert');
+const billAlert: HTMLParagraphElement = document.querySelector('#billAlert')!;
+const customAlert: HTMLParagraphElement = document.querySelector('#customAlert')!;
+const peopleAlert: HTMLParagraphElement = document.querySelector('#peopleAlert')!;

@@ -1,4 +1,4 @@
 // values
-let billValue = 0;
-let percentageValue = 0;
-let peopleValue = 0;
+let billValue: number = 0;
+let percentageValue: number = 0;
+let peopleValue: number = 0;

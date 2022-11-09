@@ -1,35 +1,34 @@
-export const app = document.querySelector('#app') as HTMLFormElement;
+const app = document.querySelector('#app') as HTMLFormElement;
 
 // Text Inputs
-export const billInput = document.querySelector('#bill') as HTMLInputElement;
-export const customInput = document.querySelector('#custom') as HTMLInputElement;
-export const peopleInput = document.querySelector('#numOfPeople') as HTMLInputElement;
+const billInput = document.querySelector('#bill') as HTMLInputElement;
+const customInput = document.querySelector('#custom') as HTMLInputElement;
+const peopleInput = document.querySelector('#numOfPeople') as HTMLInputElement;
 
 // Buttons
-export const button5 = document.getElementById('5') as HTMLButtonElement;
-export const button10 = document.getElementById('10') as HTMLButtonElement;
-export const button15 = document.getElementById('15') as HTMLButtonElement;
-export const button25 = document.getElementById('25') as HTMLButtonElement;
-export const button50 = document.getElementById('50') as HTMLButtonElement;
-export const resetButton = document.getElementById('reset') as HTMLButtonElement;
-export const buttons: HTMLButtonElement[] = [button5, button10, button15, button25, button50];
+const button5 = document.getElementById('5') as HTMLButtonElement;
+const button10 = document.getElementById('10') as HTMLButtonElement;
+const button15 = document.getElementById('15') as HTMLButtonElement;
+const button25 = document.getElementById('25') as HTMLButtonElement;
+const button50 = document.getElementById('50') as HTMLButtonElement;
+const resetButton = document.getElementById('reset') as HTMLButtonElement;
+const buttons: HTMLButtonElement[] = [button5, button10, button15, button25, button50];
 
 // Outputs
-export const tipOutput = document.querySelector('#tipAmount') as HTMLOutputElement;
-export const totalOutput = document.querySelector('#total') as HTMLOutputElement;
+const tipOutput = document.querySelector('#tipAmount') as HTMLOutputElement;
+const totalOutput = document.querySelector('#total') as HTMLOutputElement;
 
 // Alerts elements
-export const billAlert = document.querySelector('#billAlert') as HTMLParagraphElement;
-export const customAlert = document.querySelector('#customAlert') as HTMLParagraphElement;
-export const peopleAlert = document.querySelector('#peopleAlert') as HTMLParagraphElement;
+const billAlert = document.querySelector('#billAlert') as HTMLParagraphElement;
+const customAlert = document.querySelector('#customAlert') as HTMLParagraphElement;
+const peopleAlert = document.querySelector('#peopleAlert') as HTMLParagraphElement;
 
 //Alert messages
-export const billMessage: string = "Only numbers, Can't be zero, up to two decimal points";
-export const peopleMessage: string = "Can't be zero, Only whole numbers up to three digits";
-export const customMessage: string = "Can't be zero, Only whole numbers up to three digits";
+const billMessage: string = "Only numbers, Can't be zero, up to two decimal points";
+const peopleMessage: string = "Can't be zero, Only whole numbers up to three digits";
+const customMessage: string = "Can't be zero, Only whole numbers up to three digits";
 
 // values
-// I have to convert the values to an object so i can pass it to function and change the reference and not only the value inside the function
 
 interface Values {
     billValue: number,
@@ -43,12 +42,8 @@ const Values: Values = {
     peopleValue:  0
 }
 
-/*export let billValue: number = 0;
-export let percentageValue: number = 0;
-export let peopleValue: number = 0;*/
-
 //Clear Functions
-export function clearCustomInput(): void {
+function clearCustomInput(): void {
     customInput.value = '';
     customInput.classList.remove('--valid');
     customInput.classList.remove('--invalid');
@@ -56,22 +51,18 @@ export function clearCustomInput(): void {
     customAlert.textContent = ``;
 }
 
-export function clearOutput(): void {
+function clearOutput(): void {
     tipOutput.textContent = `$0.00`;
     totalOutput.textContent = `$0.00`;
 }
 
-export function reset(): void {
+function reset(): void {
     clearOutput()
     clearCustomInput()
 
-    Values.billValue = 0
-    Values.peopleValue = 0
-    Values.percentageValue = 0
-    /*Values.forEach(value => {
-        value = 0;
-    })
-    */
+    Values.billValue = 0;
+    Values.peopleValue = 0;
+    Values.percentageValue = 0;
 
     buttons.forEach(otherButton => {
         otherButton.classList.remove('--selected')
@@ -91,12 +82,10 @@ export function reset(): void {
 }
 
 //Calculation
-export function calculation(): void {
+function calculation(): void {
 
-    //alert(billValue)
     const tipAmount: number = ((Values.billValue * Values.percentageValue) / 100) / Values.peopleValue || 0;
     
-    //alert(tipAmount)
     const totalAmount: number = (Values.billValue + ((Values.billValue * Values.percentageValue) / 100)) / Values.peopleValue || 0; 
     
     if (tipAmount === NaN || tipAmount === Infinity || tipAmount === 0 ||totalAmount === NaN || totalAmount === Infinity) {
@@ -109,31 +98,25 @@ export function calculation(): void {
 }
 
 // Validate
-export function validate(
+function validate(
     input: HTMLInputElement, 
     alertPara: HTMLParagraphElement, 
     valueObj: Object,
     valueProp: string, 
     message: string): void {
-        //window.alert('here')
     if (input.validity.valid === false || input.value === "" || Number(input.value) < 1) {
-        //alert('wrong')
         input.classList.remove('--valid');
         input.classList.add('--invalid');
         alertPara.style.display = 'block';
         alertPara.textContent = message;
         valueObj[valueProp] = 0;
-        //alert(valuevar)
         clearOutput()
     } else {
-        //alert('right')
         input.classList.remove('--invalid');
         input.classList.add('--valid');
         alertPara.style.display = 'none';
         alertPara.textContent = '';
-        //alert(valueObj[valueProp])
         valueObj[valueProp] = Number(input.value);
-        //alert(valueObj[valueProp])
         calculation()
     }
 }
@@ -144,12 +127,10 @@ app.addEventListener('submit',  (event)=> {
 })
 
 billInput.addEventListener('input', ()=> {
-    //alert('here')
     validate(billInput, billAlert, Values, 'billValue', billMessage)
 })
 
 customInput.addEventListener('input', ()=> {
-    //alert('here')
     validate(customInput, customAlert, Values, 'percentageValue', customMessage)
 
     buttons.forEach((button) => {
@@ -158,19 +139,17 @@ customInput.addEventListener('input', ()=> {
 })
 
 peopleInput.addEventListener('input', ()=> {
-    //alert('here')
     validate(peopleInput, peopleAlert, Values, 'peopleValue', peopleMessage)
 })
 
 resetButton.addEventListener('click', (): void => {
-    //alert('here')
     reset()
 })
 
 buttons.forEach((button) => {
     
     button.addEventListener('click', () => {
-        //alert('here')
+
         button.classList.add('--selected');
         Values.percentageValue = Number(button.value);
 

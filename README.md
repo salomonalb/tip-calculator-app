@@ -11,3 +11,11 @@ It's made with HTML, SCSS and Typescript.
 The input validation was made in HTML with the pattern attribute and regular expressions.
 
 Typescript was used to update the classes acording to validity and selection, to perform calculations and to update the output amount. 
+
+The build tool used to compile Typescript and SCSS files is [Parcel](https://parceljs.org/).
+
+This repository was created using the Github CLI.
+
+This project is deployed with Netlify.
+
+https://tip-calculator-app-blas.netlify.app/

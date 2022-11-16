@@ -14,6 +14,8 @@ Typescript was used to update the classes acording to validity and selection, to
 
 The build tool used to compile Typescript and SCSS files is [Parcel](https://parceljs.org/).
 
+The Design is based on the [challenge available on Frontend Mentors](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
+
 This repository was created using the Github CLI.
 
 This project is deployed with Netlify.
